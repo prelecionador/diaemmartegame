@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Video</title>
+
+<!-- Fonte Bungee do Google -->
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
+<style>
+    /* Faz o body ocupar toda a tela e remove margens */
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-family: 'Bungee', sans-serif;
+        flex-direction: column;
+    }
+
+    /* Vídeo ocupa toda a tela */
+    video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1; /* fica atrás do título e botão */
+    }
+
+    h1 {
+        font-size: 80px;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #eebd28; /* azul principal */
+        text-shadow:
+            5px 5px 0px #fff,
+            10px 10px 0px rgba(37, 99, 235, 0.4); /* sombra azul clara */
+        letter-spacing: 0.05em;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 1.5em;   
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+        background-color: #ff4500;
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #e03e00;
+    }
+</style>
+</head>
+<body>
+
+<h1>Dia em marte</h1>
+<p>Desenvolvido por: Pedro Guilherme</p>
+<button id="playBtn">Jogar</button>
+
+<video id="gameVideo" src="C:/Users/pedro/OneDrive/Desktop/Drops/GameCOMP/src/video.mp4"></video>
+
+<script>
+    const video = document.getElementById('gameVideo');
+    const button = document.getElementById('playBtn');
+
+    // Inicia o vídeo quando o botão é clicado
+    button.addEventListener('click', () => {
+        video.play();
+        button.style.display = 'none'; // esconde o botão
+    });
+
+    // Redireciona para o Google quando o vídeo termina
+    video.addEventListener('ended', () => {
+        window.location.href = 'C:/Users/pedro/OneDrive/Desktop/Drops/GameCOMP/main.html';
+    });
+</script>
+
+</body>
+</html>
